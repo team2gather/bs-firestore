@@ -16,3 +16,9 @@ npm run start
 
 # Editor
 If you use `vscode`, Press `Windows + Shift + B` it will build automatically
+
+
+# References
+
+- Firestore api docs https://cloud.google.com/nodejs/docs/reference/firestore/0.15.x/
+- Firebase re reference https://github.com/avohq/bs-firebase/blob/master/src/reasonFirebase.re
