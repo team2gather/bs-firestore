@@ -25,7 +25,7 @@ fs.collection("teams").doc("TBE648WHM").get().then((function (value) {
 
 var update = {
   info: {
-    author: "asdfsdf"
+    author: "adfadsfasd"
   }
 };
 
