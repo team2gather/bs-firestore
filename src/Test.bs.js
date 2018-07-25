@@ -4,8 +4,8 @@
 var Firebase = require("firebase");
 
 var testConfig = {
-  databaseURL: "https://metal-air-192104.firebaseio.com",
-  projectId: "metal-air-192104"
+  projectId: "metal-air-192104",
+  databaseURL: "https://metal-air-192104.firebaseio.com"
 };
 
 var fb = Firebase.initializeApp(testConfig);

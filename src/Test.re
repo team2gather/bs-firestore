@@ -1,11 +1,9 @@
-let testConfig = Firebase.config(
-    ~apiKey: "AIzaSyDuan7gyT0OzMY7mVq_0WU64ijOCzTNqQY",
-    ~projectId="metal-air-192104",
-    ~databaseURL="https://metal-air-192104.firebaseio.com",
-  ()
-);
+let testConfig = [%bs.obj {
+  projectId: "metal-air-192104",
+  databaseURL: "https://metal-air-192104.firebaseio.com"
+}];
 
-let fb = Firebase.initializeApp(~config=testConfig);
+let fb = Firebase.initializeApp(testConfig);
 let fs = Firebase.firestore(fb); 
 Firestore.settings(fs, [%bs.obj {
   timestampsInSnapshots: true
