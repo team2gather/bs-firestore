@@ -12,6 +12,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "bs-platform": "^4.0.0"
+    "bs-platform": "^4.0.1"
+  },
+  "dependencies": {
+    "firebase": "^5.3.0"
   }
 }
