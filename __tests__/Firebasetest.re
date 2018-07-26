@@ -1,4 +1,26 @@
-let testConfig = [%bs.obj {
+open Jest;
+open Expect;
+open! Expect.Operators;
+
+describe("Firebase", () => {
+  describe("config", () => {
+    let subject = Firebase.config(~projectId="blah", ~databaseURL="halb");
+    test("should generate an object with the correct projectId", () =>
+      expect(subject |. Firebase.projectIdGet) === "blah"
+    );
+
+    test("should generate an object with the correct databaseURL", () => 
+      expect(subject |. Firebase.databaseURLGet) === "halb"
+    );
+  });
+});
+/**
+ * Not sure how to test? See this package for an example!
+ * 
+ * https://github.com/Schniz/bs-faker/blob/master/__tests__/Fakertest.re
+ */
+
+/* let testConfig = [%bs.obj {
   projectId: "metal-air-192104",
   databaseURL: "https://metal-air-192104.firebaseio.com"
 }];
@@ -7,10 +29,10 @@ let fb = Firebase.initializeApp(testConfig);
 let fs = Firebase.firestore(fb); 
 Firestore.settings(fs, [%bs.obj {
   timestampsInSnapshots: true
-}]);
+}]); */
 
 /* GET TEST */
-Firestore.collection(fs, "teams")
+/* Firestore.collection(fs, "teams")
 |. Firestore.CollectionReference.doc("TBE648WHM")
 |. Firestore.DocumentReference.get
 |> Js.Promise.then_(value => {
@@ -18,16 +40,16 @@ Firestore.collection(fs, "teams")
   let team_id = data##team_id;
   Js.log(team_id); 
   Js.Promise.resolve(); 
-});
+}); */
 
 /* SET TEST */
-let update  = [%bs.obj {
+/* let update  = [%bs.obj {
   info: {author: "adfadsfasd"}
 }];
 
 let testDocRef = Firestore.collection(fs, "teams")
 |. Firestore.CollectionReference.doc("TEST")
-|. Firestore.DocumentReference.set(update); 
+|. Firestore.DocumentReference.set(update);  */
 
 /* ADD TEST */
 /* let addInfo = [%bs.obj {
