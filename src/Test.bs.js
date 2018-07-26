@@ -3,12 +3,10 @@
 
 var Firebase = require("firebase");
 
-var testConfig = {
-  projectId: "metal-air-192104",
-  databaseURL: "https://metal-air-192104.firebaseio.com"
-};
-
-var fb = Firebase.initializeApp(testConfig);
+var fb = Firebase.initializeApp({
+      projectId: "metal-air-192104",
+      databaseURL: "https://metal-air-192104.firebaseio.com"
+    });
 
 var fs = fb.firestore();
 
@@ -31,11 +29,16 @@ var update = {
 
 fs.collection("teams").doc("TEST").set(update);
 
+var addInfo = {
+  testField: "hi!!",
+  someInt: 2342
+};
+
 var testDocRef = /* () */0;
 
-exports.testConfig = testConfig;
 exports.fb = fb;
 exports.fs = fs;
 exports.update = update;
 exports.testDocRef = testDocRef;
+exports.addInfo = addInfo;
 /* fb Not a pure module */

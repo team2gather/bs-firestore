@@ -1,13 +1,11 @@
-let testConfig = [%bs.obj {
-  projectId: "metal-air-192104",
-  databaseURL: "https://metal-air-192104.firebaseio.com"
-}];
-
-let fb = Firebase.initializeApp(testConfig);
+let fb = Firebase.initializeApp({
+  "projectId": "metal-air-192104",
+  "databaseURL": "https://metal-air-192104.firebaseio.com"
+});
 let fs = Firebase.firestore(fb); 
-Firestore.settings(fs, [%bs.obj {
-  timestampsInSnapshots: true
-}]);
+Firestore.settings(fs, {
+  "timestampsInSnapshots": true
+});
 
 /* GET TEST */
 Firestore.collection(fs, "teams")
@@ -21,21 +19,21 @@ Firestore.collection(fs, "teams")
 });
 
 /* SET TEST */
-let update  = [%bs.obj {
-  info: {author: "adfadsfasd"}
-}];
+let update  = {
+  "info": {author: "adfadsfasd"}
+};
 
 let testDocRef = Firestore.collection(fs, "teams")
 |. Firestore.CollectionReference.doc("TEST")
 |. Firestore.DocumentReference.set(update); 
 
 /* ADD TEST */
-/* let addInfo = [%bs.obj {
-  testField: "hi!!",
-  someInt: 2342
-}];
+let addInfo = {
+  "testField": "hi!!",
+  "someInt": 2342
+};
 
-let testDocRef = Firestore.collection(fs, "teams")
+/* let testDocRef = Firestore.collection(fs, "teams")
 |. Firestore.CollectionReference.add(addInfo)
 |> Js.Promise.then_(value => {
   let id = Firestore.DocumentReference.id(value);
