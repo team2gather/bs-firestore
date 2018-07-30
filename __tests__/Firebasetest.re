@@ -2,34 +2,29 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
+/**
+ * Not sure how to test? See this package for an example!
+ *
+ * https://github.com/Schniz/bs-faker/blob/master/__tests__/Fakertest.re
+ */
 describe("Firebase", () => {
   describe("config", () => {
-    let subject = Firebase.config(~projectId="blah", ~databaseURL="halb");
+    let subject = Firebase.config(~projectId="blah", ~databaseURL="halb", ());
     test("should generate an object with the correct projectId", () =>
       expect(subject |. Firebase.projectIdGet) === "blah"
     );
 
-    test("should generate an object with the correct databaseURL", () => 
+    test("should generate an object with the correct databaseURL", () =>
       expect(subject |. Firebase.databaseURLGet) === "halb"
     );
   });
+
+  describe("firebase", () => {
+    test("should be ok", () =>
+      expect(() => Setuptest.config |> Firebase.initializeApp) |> not_ |> toThrow
+    );
+  });
 });
-/**
- * Not sure how to test? See this package for an example!
- * 
- * https://github.com/Schniz/bs-faker/blob/master/__tests__/Fakertest.re
- */
-
-/* let testConfig = [%bs.obj {
-  projectId: "metal-air-192104",
-  databaseURL: "https://metal-air-192104.firebaseio.com"
-}];
-
-let fb = Firebase.initializeApp(testConfig);
-let fs = Firebase.firestore(fb); 
-Firestore.settings(fs, [%bs.obj {
-  timestampsInSnapshots: true
-}]); */
 
 /* GET TEST */
 /* Firestore.collection(fs, "teams")
@@ -38,8 +33,8 @@ Firestore.settings(fs, [%bs.obj {
 |> Js.Promise.then_(value => {
   let data = Firestore.DocumentSnapshot.data(value);
   let team_id = data##team_id;
-  Js.log(team_id); 
-  Js.Promise.resolve(); 
+  Js.log(team_id);
+  Js.Promise.resolve();
 }); */
 
 /* SET TEST */
@@ -61,6 +56,6 @@ let testDocRef = Firestore.collection(fs, "teams")
 |. Firestore.CollectionReference.add(addInfo)
 |> Js.Promise.then_(value => {
   let id = Firestore.DocumentReference.id(value);
-  Js.log(id); 
-  Js.Promise.resolve(); 
+  Js.log(id);
+  Js.Promise.resolve();
 });   */

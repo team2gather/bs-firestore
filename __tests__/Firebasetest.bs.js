@@ -3,18 +3,27 @@
 
 var Jest = require("@glennsl/bs-jest/src/jest.js");
 var Curry = require("bs-platform/lib/js/curry.js");
+var Firebase = require("firebase");
+var Setuptest$BsFirestore = require("./Setuptest.bs.js");
 
 describe("Firebase", (function () {
         describe("config", (function () {
                 var subject = {
-                  projectId: "blah",
-                  databaseURL: "halb"
+                  databaseURL: "halb",
+                  projectId: "blah"
                 };
                 Jest.test("should generate an object with the correct projectId", (function () {
                         return Curry._2(Jest.Expect[/* Operators */24][/* == */0], Jest.Expect[/* expect */0](subject.projectId), "blah");
                       }));
                 return Jest.test("should generate an object with the correct databaseURL", (function () {
                               return Curry._2(Jest.Expect[/* Operators */24][/* == */0], Jest.Expect[/* expect */0](subject.databaseURL), "halb");
+                            }));
+              }));
+        describe("firebase", (function () {
+                return Jest.test("should be ok", (function () {
+                              return Jest.Expect[/* toThrow */18](Jest.Expect[/* not_ */23](Jest.Expect[/* expect */0]((function () {
+                                                    return Firebase.initializeApp(Setuptest$BsFirestore.config);
+                                                  }))));
                             }));
               }));
         return /* () */0;
