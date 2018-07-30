@@ -9,7 +9,7 @@ Firestore.settings(fs, {
 
 /* GET TEST */
 Firestore.collection(fs, "teams")
-|. Firestore.CollectionReference.doc("TBE648WHM")
+|. Firestore.doc("TBE648WHM")
 |. Firestore.DocumentReference.get
 |> Js.Promise.then_(value => {
   let data = Firestore.DocumentSnapshot.data(value);
@@ -24,7 +24,7 @@ let update  = {
 };
 
 let testDocRef = Firestore.collection(fs, "teams")
-|. Firestore.CollectionReference.doc("TEST")
+|. Firestore.doc("TEST")
 |. Firestore.DocumentReference.set(update); 
 
 /* ADD TEST */
@@ -40,3 +40,27 @@ let addInfo = {
   Js.log(id); 
   Js.Promise.resolve(); 
 });   */
+
+/* SNAPSHOT */
+/* let unsub = Firestore.collection(fs, "maps")
+|. Firestore.doc("HVAPqdFNWpOSh8neZWbu")
+|. Firestore.DocumentReference.onSnapshot((snapshot) => {
+  let data = Firestore.DocumentSnapshot.data(snapshot);
+  Js.log(data);
+}, (error) => {
+  Js.log(error);
+});
+unsub(); */
+
+let unsub2 = Firestore.collection(fs, "maps")
+|. Firestore.doc("HVAPqdFNWpOSh8neZWbu")
+|. Firestore.collection("attendees")
+|. Firestore.CollectionReference.onSnapshot((snapshot) => {
+  let docs = Firestore.QuerySnapshot.docs(snapshot);
+  Array.map((doc) => {
+    Js.log(Firestore.DocumentSnapshot.data(doc));
+  }, docs);
+}, (error) => {
+  Js.log(error);
+});
+/* unsub2(); */
