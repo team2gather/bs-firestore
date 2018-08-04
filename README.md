@@ -1,3 +1,7 @@
+# IMPORTANT! WORK IN PROGRESS!!
+
+This is *NOT* a production ready package and is instead under active development, do *NOT* use unless you're absolutely insane (use the existing [bs-firebase](https://github.com/avohq/bs-firebase) instead!)
+
 # Basic Reason Template
 
 Hello! This project allows you to quickly get started with Reason and BuckleScript. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
