@@ -18,6 +18,8 @@ module DocumentReference {
     [@bs.get] external id : t => string = "";
     [@bs.send] external get : (t) => Js.Promise.t(DocumentSnapshot.t) = "";
     [@bs.send] external set : (t, Js.t({..})) => unit = "";
+    /* ADD UPDATE */
+    [@bs.send] external update : (t, Js.t({..})) => unit = ""; 
     [@bs.send] external onSnapshot : (t, 'a, 'b) => 'c = "";
 };
 module CollectionReference {
