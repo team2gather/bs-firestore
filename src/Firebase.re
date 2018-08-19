@@ -1,6 +1,6 @@
 /**
  * Firebase setup docs are here:
- * 
+ *
  * https://firebase.google.com/docs/web/setup
  */
 
@@ -16,8 +16,8 @@ type config = {
 
 type t;
 
-[@bs.module "firebase"] 
-external initializeApp : config => t = ""; 
+[@bs.module "firebase"]
+external initializeApp : config => t = "";
 
 [@bs.send]
-external firestore : (t) => Firestore.t = ""; 
+external firestore : (t) => Firestore.t = "";

@@ -3,4 +3,6 @@
 .bsb.lock
 npm-debug.log
 /lib/bs/
+/lib/ocaml/
+/__tests__/secrets/
 /node_modules/
