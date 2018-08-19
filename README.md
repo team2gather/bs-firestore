@@ -1,24 +1,13 @@
-# Basic Reason Template
+# [WIP] Firebase Reason Bindings
 
-Hello! This project allows you to quickly get started with Reason and BuckleScript. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
+Looking for a reasonML firebase library? Consider this as an alternative to this [one](https://github.com/avohq/bs-firebase) which doesn't seem to be maintained anymore.
 
-# Build
-```
-npm run build
-```
+## TODOs
 
-# Build + Watch
+- [ ] add testing
+- [ ] support mocks
 
-```
-npm run start
-```
+## Q&A
 
-
-# Editor
-If you use `vscode`, Press `Windows + Shift + B` it will build automatically
-
-
-# References
-
-- Firestore api docs https://cloud.google.com/nodejs/docs/reference/firestore/0.15.x/
-- Firebase re reference https://github.com/avohq/bs-firebase/blob/master/src/reasonFirebase.re
+Q: Why "-X"?
+A: Because it makes it cool

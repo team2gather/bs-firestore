@@ -1,5 +1,5 @@
 {
-  "name": "bs-firestore",
+  "name": "bs-firebase-x",
   "version": "0.1.0",
   "scripts": {
     "build": "bsb -make-world",
@@ -7,7 +7,9 @@
     "clean": "bsb -clean-world"
   },
   "keywords": [
-    "BuckleScript"
+    "BuckleScript",
+    "firebase",
+    "firestore"
   ],
   "author": "",
   "license": "MIT",
