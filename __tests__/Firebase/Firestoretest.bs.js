@@ -4,7 +4,7 @@
 var Jest = require("@glennsl/bs-jest/src/jest.js");
 var Firebase = require("firebase");
 var Js_primitive = require("bs-platform/lib/js/js_primitive.js");
-var Setuptest$BsFirebaseX = require("./Setuptest.bs.js");
+var Setuptest$BsFirebaseX = require("../Setuptest.bs.js");
 
 describe("Firestore", (function () {
         var firebase = Firebase.initializeApp(Setuptest$BsFirebaseX.config);

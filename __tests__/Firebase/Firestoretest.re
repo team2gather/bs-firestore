@@ -3,14 +3,14 @@ open Expect;
 open! Expect.Operators;
 
 describe("Firestore", () => {
-  let firebase = Firebase.initializeApp(BsFirebaseX.Setuptest.config);
+  let firebase = Firebase.initializeApp(Setuptest.config);
 
   describe("Firestore", () => {
     let firestore = firebase |> Firebase.firestore;
-    let options = Firebase.Firestore.options(~timestampsInSnapshots=true, ());
+    let options = Firestore.options(~timestampsInSnapshots=true, ());
 
     test("should run with errors", () =>
-      expect(() => firestore |> Firebase.Firestore.settings(~options=options)) |> not_ |> toThrow
+      expect(() => firestore |> Firestore.settings(~options=options)) |> not_ |> toThrow
     );
   });
 });
